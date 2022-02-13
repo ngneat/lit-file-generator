@@ -1,0 +1,42 @@
+{
+  "name": "@ngneat/lit-file-generator",
+  "version": "1.0.0",
+  "description": "File generator for Lit",
+  "main": "index.js",
+  "scripts": {
+    "start": "plop",
+    "test": "jest"
+  },
+  "author": "Netanel Basal",
+  "bin": {
+    "litgen": "index.js"
+  },
+  "repository": {
+    "url": "https://github.com/ngneat/lit-file-generator"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "lit",
+    "lit js generator",
+    "file generator",
+    "directive generator",
+    "controller generator",
+    "component-generator",
+    "generator"
+  ],
+  "lit": {},
+  "dependencies": {
+    "find-package-json": "1.2.0",
+    "inquirer-fuzzy-path": "2.3.0",
+    "lit": "2.1.3",
+    "lodash.kebabcase": "4.1.1",
+    "pkg-dir": "6.0.1",
+    "plop": "2.7.6"
+  },
+  "devDependencies": {
+    "jest": "27.5.1"
+  },
+  "license": "MIT"
+}

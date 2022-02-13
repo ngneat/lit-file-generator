@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component 1`] = `
+"import { LitElement, html } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import { styles } from './foo.style';
+
+@customElement('app-foo')
+class Foo extends LitElement {
+  static override styles = [styles];
+
+  @state()
+  title = 'Foo';
+
+  @property()
+  name = 'Foo';
+
+  render() {
+    return html\`<p>Hello from my \${this.name}.</p>\`;
+  }
+}"
+`;
+
+exports[`Component 2`] = `
+"import { css } from 'lit';
+
+export const styles = [
+  css\`
+    :host {
+      display: block;
+    }
+  \`
+]"
+`;
+
+exports[`Controller 1`] = `
+"import { ReactiveController, ReactiveControllerHost } from 'lit';
+
+export class FooController implements ReactiveController {
+  value = new Date();
+  timeout: number;
+  private timerID: any;
+
+  constructor(private host: ReactiveControllerHost, timeout = 1000) {
+    this.host.addController(this);
+    this.timeout = timeout;
+  }
+
+  hostConnected() {
+    // Start a timer when the host is connected
+    this.timerID = setInterval(() => {
+      this.value = new Date();
+
+      // Update the host with new value
+      this.host.requestUpdate();
+    }, this.timeout);
+  }
+
+  hostDisconnected() {
+    // Clear the timer when the host is disconnected
+    clearInterval(this.timerID);
+
+    this.timerID = undefined;
+  }
+}"
+`;
+
+exports[`Directive 1`] = `
+"import { Directive, directive } from 'lit/directive.js';
+
+class FooDirective extends Directive {
+  private maxValue = Number.MIN_VALUE;
+  
+  render(value: number, minValue = Number.MIN_VALUE) {
+    this.maxValue = Math.max(value, this.maxValue, minValue);
+
+    return this.maxValue;
+  }
+}
+
+export const foo = directive(FooDirective);
+"
+`;

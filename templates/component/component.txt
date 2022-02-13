@@ -1,0 +1,18 @@
+import { LitElement, html } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import { styles } from './{{ kebabCase name }}.style';
+
+@customElement('{{ prefix }}-{{ kebabCase name }}')
+class {{  pascalCase name }} extends LitElement {
+  static override styles = [styles];
+
+  @state()
+  title = '{{  pascalCase name }}';
+
+  @property()
+  name = '{{  pascalCase name }}';
+
+  render() {
+    return html`<p>Hello from my ${this.name}.</p>`;
+  }
+}

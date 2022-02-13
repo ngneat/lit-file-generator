@@ -1,0 +1,13 @@
+import { Directive, directive } from 'lit/directive.js';
+
+class {{ pascalCase name }}Directive extends Directive {
+  private maxValue = Number.MIN_VALUE;
+  
+  render(value: number, minValue = Number.MIN_VALUE) {
+    this.maxValue = Math.max(value, this.maxValue, minValue);
+
+    return this.maxValue;
+  }
+}
+
+export const {{ camelCase name }} = directive({{ pascalCase name }}Directive);
